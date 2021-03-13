@@ -32,6 +32,14 @@ body {
     border-bottom: 1px solid lightgrey;
 }
 
+.color {
+    padding: 5px;
+    margin-top: 25px;
+    width: 150px;
+    border: none;
+    border-bottom: 1px solid lightgrey;
+}
+
 .button {
     background-color: rgb(56, 165, 220);
     padding: 10px;
