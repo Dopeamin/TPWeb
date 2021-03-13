@@ -23,7 +23,6 @@ hard.addEventListener("click", function() {
     tentatives.innerHTML = tent;
     random = Math.floor(Math.random() * 11);
 });
-alert(random);
 tentatives = document.getElementById('tentative');
 tentatives.innerHTML = tent;
 text = document.getElementById("text");
