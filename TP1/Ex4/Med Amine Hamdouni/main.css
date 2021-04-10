@@ -23,31 +23,3 @@ body {
 .content {
     text-align: center;
 }
-
-.chiffre {
-    padding: 10px;
-    margin-top: 25px;
-    width: 400px;
-    border: none;
-    border-bottom: 1px solid lightgrey;
-}
-
-.color {
-    padding: 5px;
-    margin-top: 25px;
-    width: 150px;
-    border: none;
-    border-bottom: 1px solid lightgrey;
-}
-
-.button {
-    background-color: rgb(56, 165, 220);
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-}
-
-.button:hover {
-    cursor: pointer;
-    background-color: rgb(191, 191, 191);
-}
