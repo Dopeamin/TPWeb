@@ -1,7 +1,7 @@
 <?php
 
 
-class personne
+class Personne
 {
     private $userName;
     private $userEmail;

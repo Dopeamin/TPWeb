@@ -7,7 +7,7 @@ if(isset($_POST['userName']) && isset($_POST['userEmail']) && isset($_POST['user
     $name = explode(".", $_FILES['image']['name']);
     $extension = end($name);
     $fullname = $pic .".". $extension;
-    if(copy($_FILES['image']['tmp_name'], "images/".$fullname)){
+    if(move_uploaded_file($_FILES['image']['tmp_name'], "images/".$fullname)){
         $_SESSION['errorMessage']="Le fichier est valide, et a été téléchargé
                avec succès. Voici plus d'informations :\n";
                $user = new Personne($_POST['userName'],$_POST['userEmail'],$_POST['userPassword'],$_POST['age'],$fullname);
