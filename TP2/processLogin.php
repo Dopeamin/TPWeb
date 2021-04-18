@@ -7,10 +7,12 @@ $password = $_POST['pwd'];
 if (isset($email)&&isset($password)) {
     $persorepo = new PersonneRepository();
     $user = $persorepo->getUserByEmail($email);
-    if($user == null){
+    
+    if($user == FALSE){
         $_SESSION['errorMessage']="Veuillez vérifier vos credenitalsss";
-        header('location:login.php');
-    }else if($user->userPassword==$password){
+        echo $email;
+        echo $user['userEmail'];
+    }else if($user->userpassword==$password){
         $_SESSION['user']=$email;
         header('location:home.php');
     }else{

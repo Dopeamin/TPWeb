@@ -2,16 +2,16 @@
 
 class ConnexionBD
 {
-    private static $_dbname = "tp";
-    private static $_user = "root";
-    private static $_pwd = "";
-    private static $_host = "localhost";
+    private static $_dbname = "d5jl2g8dpnp7k4";
+    private static $_user = "rnkdfhgeadccoj";
+    private static $_pwd = "c4765432d93ba09c9cb0073b511371a5aa0b11c47576ab0d3310ec449d7f6981";
+    private static $_host = "ec2-63-34-97-163.eu-west-1.compute.amazonaws.com";
     private static $_bdd = null;
 
     private function __construct()
     {
         try {
-            self::$_bdd = new PDO("mysql:host=" . self::$_host . ";dbname=" . self::$_dbname . ";charset=utf8", self::$_user, self::$_pwd, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES UTF8'));
+            self::$_bdd = new PDO("pgsql:host=" . self::$_host . ";port=5432;dbname=" . self::$_dbname , self::$_user, self::$_pwd);
         } catch (PDOException $e) {
             die('Erreur : ' . $e->getMessage());
         }

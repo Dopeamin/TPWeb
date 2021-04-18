@@ -9,9 +9,9 @@
         if($user != null){
 ?>
     <form action="modifyProcess.php" method="post" class="form-group" enctype="multipart/form-data">
-    <input name="userName" value="<?= $user->userName ?>" type="text" placeholder="User name">
-    <input name="userEmail" value="<?= $user->userEmail ?>" type="email" placeholder="Email">
-    <input name="userPassword" value="<?= $user->userPassword ?>" type="password" placeholder="pass">
+    <input name="userName" value="<?= $user->username ?>" type="text" placeholder="User name">
+    <input name="userEmail" value="<?= $user->useremail ?>" type="email" placeholder="Email">
+    <input name="userPassword" value="<?= $user->userpassword ?>" type="password" placeholder="pass">
     <input name="age" type="number" value="<?= $user->age ?>" placeholder="18">
     <input name="image" value="images/<?= $user->picture ?>" type="file">
     <button type="submit" class="btn btn-primary">Modify</button>
