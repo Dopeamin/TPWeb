@@ -11,7 +11,17 @@ class ConnexionBD
     private function __construct()
     {
         try {
-            self::$_bdd = new PDO("pgsql:host=" . self::$_host . ";port=5432;dbname=" . self::$_dbname , self::$_user, self::$_pwd);
+            $db = parse_url(getenv("DATABASE_URL"));
+
+            self::$_bdd = new PDO("pgsql:" . sprintf(
+                    "host=%s;port=%s;user=%s;password=%s;dbname=%s",
+                    $db["host"],
+                    $db["port"],
+                    $db["user"],
+                    $db["pass"],
+                    ltrim($db["path"], "/")
+                ));
+                //self::$_bdd= new PDO("pgsql:host=" . self::$_host . ";port=5432;dbname=" . self::$_dbname , self::$_user, self::$_pwd);
         } catch (PDOException $e) {
             die('Erreur : ' . $e->getMessage());
         }
