@@ -19,7 +19,7 @@ if(isset($_POST['userName']) && isset($_POST['userEmail']) && isset($_POST['user
         
     
 }else{
-    echo"Fill all fields";
+    header('location:home.php');
 }
 
 ?>
