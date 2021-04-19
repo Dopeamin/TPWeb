@@ -1,4 +1,5 @@
 <?php
+session_start();
 include_once "autoload.php";
 
 if(isset($_POST['userName']) && isset($_POST['userEmail']) && isset($_POST['userPassword']) && isset($_POST['age']) && isset($_FILES['image'])){
@@ -12,6 +13,8 @@ if(isset($_POST['userName']) && isset($_POST['userEmail']) && isset($_POST['user
                avec succès. Voici plus d'informations :\n";
                $user = new Personne($_POST['userName'],$_POST['userEmail'],$_POST['userPassword'],$_POST['age'],$fullname);
             $repo->modifyUser($user);
+            $log = new LogWriter("Modified account ".$_POST['userName'],$_SESSION['user']);
+            $log->writeLog();
             $_SESSION["errorMessage"]="User Added";
             header('location:home.php');
     }  

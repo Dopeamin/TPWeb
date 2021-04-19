@@ -11,9 +11,10 @@ if (isset($email)&&isset($password)) {
     if($user == FALSE){
         $_SESSION['errorMessage']="Veuillez vérifier vos credenitalsss";
         echo $email;
-        echo $user['userEmail'];
     }else if($user->userpassword==$password){
         $_SESSION['user']=$email;
+        $log = new LogWriter("Logged into his account",$user->username);
+        $log->writeLog();
         header('location:home.php');
     }else{
         $_SESSION['errorMessage']="Veuillez vérifier vos credenitals";
