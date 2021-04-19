@@ -19,30 +19,30 @@ class Repository
     }
 
     public function findByname($cur) {
-        $request = "select * from personnes where nom = ?";
+        $request = "select * from personnes where nom ='".$cur."'";
         $response =$this->bd->prepare($request);
-        $response->execute([$cur]);
+        $response->execute();
         return $response->fetch(PDO::FETCH_OBJ);
     }
     public function supprimer($name) {
-        $request = "delete  from personnes where nom = ?";
+        $request = "delete  from personnes where nom = '".$name."'";
         $pic=$this->findByname($name);
         unlink('/pictures/$pic->picture');
         $response =$this->bd->prepare($request);
-        $response->execute([$name]);
+        $response->execute();
 
 
 
     }
     public function modifier($cur,$name,$prenom,$age,$section,$pic){
-        $requete="UPDATE ".$this->tableName." SET nom=? , prenom=?, age=? , section=? ,picture=? where nom=?";
+        $requete="update personnes set nom='".$name."' , prenom='".$prenom."', age='".$age."' , section='".$section."' ,picture='".$pic."' where nom='".$cur."'";
         $rep=$this->bd->prepare($requete);
-        $rep->execute([$name,$prenom,$age,$section,$pic,$cur]);
+        $rep->execute();
     }
     public function ajouter($name,$prenom,$age,$section,$pic){
-        $request="INSERT INTO  personnes (`nom`, `prenom`, `age`,`section`,`picture`) VALUES (?,?,?,?,?)";
+        $request="insert into personnes (nom,prenom,age,section,picture) VALUES ('".$name."','".$prenom."','".$age."','".$section."','".$pic."')";
         $rep=$this->bd->prepare($request);
-        $rep->execute([$name,$prenom,$age,$section,$pic]);
+        $rep->execute();
 
     }
 }
