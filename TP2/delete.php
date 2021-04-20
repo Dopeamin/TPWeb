@@ -4,9 +4,12 @@
     $email = $_GET['email'];
     if(isset($email)){
         $repo = new PersonneRepository();
-        $repo -> removeUser($email);
-        $log = new LogWriter("Deleted account ".$email,$_SESSION['user']);
-        $log->writeLog();
+        $user = $repo->getUserByEmail($email);
+        unlink("images/".$user->picture);
+            $repo -> removeUser($email);
+            $log = new LogWriter("Deleted account ".$email,$_SESSION['user']);
+            $log->writeLog();
+        
         header('location:home.php');
     }else{
         header('location:home.php');

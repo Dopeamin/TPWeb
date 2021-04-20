@@ -33,9 +33,11 @@ class PersonneRepository extends Repository
     }
     public function removeUser($email){
         $bdd = ConnexionBD::getInstance();
+        
         $query = "Delete FROM users WHERE useremail = '".$email."'";
         $response = $bdd->prepare($query);
         $response->execute();
+        
     }
     public function modifyUser($user){
         $bdd = ConnexionBD::getInstance();

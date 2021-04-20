@@ -7,10 +7,11 @@ include_once 'fragments/header.php';
 
 <table class="table">
     <tr>
-        <th>Firstname</th>
         <th>Name</th>
+        <th>Email</th>
         <th>Age</th>
         <th>Picture</th>
+        <th></th>
     </tr>
     <?php foreach ($personnes as $personne) {
     ?>
