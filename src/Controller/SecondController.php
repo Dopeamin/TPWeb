@@ -14,9 +14,10 @@ class SecondController extends AbstractController
      */
     public function index(Request $request): Response
     {
-        dump($request);
+        $name = $request->query->get('name');
         return $this->render('second/index.html.twig', [
             'controller_name' => 'SecondController',
+            'esm' => $name
         ]);
     }
 
@@ -28,4 +29,27 @@ class SecondController extends AbstractController
             'name' => $name
         ));
     }
+
+    /**
+     * @Route("/cv/{name}/{firstname}/{age}/{section}")
+     */
+    public function cv($name, $firstname, $age, $section) {
+        return $this->render('second/cv.html.twig', [
+           'name' => $name,
+           'firstname' => $firstname,
+           'age' => $age,
+           'section' => $section,
+        ]);
+    }
+
+    /**
+     * @Route("/hellohadil")
+     */
+    public function helloHadil() {
+        return $this->forward('App\Controller\SecondController::hello', [
+           'name' => 'Hadil'
+        ]);
+    }
+
+
 }
