@@ -32,9 +32,16 @@
         {% for name, description in app.session.get('todos') %}
            <li class="list-group-item">
                 {{ name }} : {{ description }}
+                <a style="float:right;margin-left:10px" href={{ path("modifyTodo",{"name":name,"content":2},false) }}>Modify</a>
+                <a style="float:right" href={{ path("deleteTodo",{"name":name},false) }}>Delete</a>
             </li>
         {% endfor %}
     </ol>
+    <form class="list-group" action="add": style="margin-top:10px;display:flex">
+        <input class="list-group-item" type="text" name="name" placeholder="Name">
+        <input class="list-group-item" type="text" name="content" placeholder="Content">
+        <button style="background-color:#00bc8c;width:fit-content;border:0px;color:white;margin:auto;padding:20px;margin-top:20px;" type="submit">Add</button>
+    </form>
 </div>
 </body>
 </html>
