@@ -72,7 +72,7 @@ class TodoController extends AbstractController
                 //ko => messsage erreur + redirection
                 unset($todos[$name]);
                 $session->set('todos',$todos);
-                $this->addFlash('error', "Le todo $name est supprimé avec succés");
+                $this->addFlash('success', "Le todo $name est supprimé avec succés");
             
         }
         return $this->redirectToRoute('todo');
@@ -92,7 +92,7 @@ class TodoController extends AbstractController
                 //ko => messsage erreur + redirection
                 $todos[$name] = $content;
                 $session->set('todos',$todos);
-                $this->addFlash('error', "Le todo $name est modifié avec succés");
+                $this->addFlash('success', "Le todo $name est modifié avec succés");
             } else {
                 //ok => j ajoute et je redirige avec message succès
                 
@@ -106,6 +106,7 @@ class TodoController extends AbstractController
      */
     public function clear(SessionInterface $session){
         $session->clear('todos');
+        $this->addFlash('success', "Le todolist reset");
         return $this->redirectToRoute('todo');
     }
 }
